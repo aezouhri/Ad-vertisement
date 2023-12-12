@@ -58,10 +58,13 @@ audio {
   
   .card-prompt {
     font-size: 14px;
+    text-align: justify;
   }
 
   .card-instructions {
     font-size: 14px;
+    text-align: justify;
+
   }
 
 /* Responsive design */
