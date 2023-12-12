@@ -66,7 +66,12 @@ function sendAudioToServer() {
         console.log('Transcription:', data.transcription);
         // Update the DOM with the transcription data
         let transcriptionElement = document.getElementById('transcription');
+        let promptElement = document.getElementById('prompt');
+        let instructionElement = document.getElementById('instruction');
         transcriptionElement.textContent = data.transcription;
+        promptElement.textContent = data.prompt;
+        instructionElement.textContent = data.instruction;
+
     })
     .catch(error => console.error('Error:', error));
 }
