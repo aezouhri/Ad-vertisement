@@ -64,7 +64,9 @@ function sendAudioToServer() {
     }).then(response => response.json())
     .then(data => {
         console.log('Transcription:', data.transcription);
-        // You can update the DOM or perform other actions with the transcription data here
+        // Update the DOM with the transcription data
+        let transcriptionElement = document.getElementById('transcription');
+        transcriptionElement.textContent = data.transcription;
     })
     .catch(error => console.error('Error:', error));
 }
