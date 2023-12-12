@@ -80,7 +80,7 @@ def generate_instruction_given_image(image_url):
         messages=[
             {
                 "role": "system",
-                "content": "Given the description of an image. You will generate a list of instructions to create a short movie advertisement. I want you to give me nice transitions, cinematic effects, and audio effects, that would match the description of the image.Only give me 3 to 4  very short bullet points, in a list format where each bullet point is an element. Do that and only that. Answer should only be a json in the following format: {\"visual_effect\": [\"effect_1_description\",\"effect_2_description\"],\"audio_effect\": [\"effect_1_description\",\"effect_2_description\"] }",
+                "content": "Given the description of an image. I want you to give me nice transitions, cinematic effects, and audio effects, that would match the description of the image.Only give me 3 to 4 very short points in the following JSON format: {\"visual_effect\": [\"effect_1_description\",\"effect_2_description\"],\"audio_effect\": [\"effect_1_description\",\"effect_2_description\"] }. Do that and only that. Answer should ONLY be a JSON!",
             },
             {"role": "user", "content": read_image_response},
         ],
