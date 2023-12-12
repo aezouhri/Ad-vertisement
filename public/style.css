@@ -30,6 +30,40 @@ audio {
     width: 300px; /* Adjust as needed */
 }
 
+.card {
+    display: none;
+  }
+  
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .card-image {
+    width: 50%;
+    height: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .card-content {
+    text-align: center;
+  }
+  
+  .card-transcription {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-prompt {
+    font-size: 14px;
+  }
+
+  .card-instructions {
+    font-size: 14px;
+  }
+
 /* Responsive design */
 @media (max-width: 600px) {
     audio {

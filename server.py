@@ -61,7 +61,7 @@ def generate_instruction_given_image(image_url):
                 "content": [
                     {
                         "type": "text",
-                        "text": "You are assisting in the creating of a short movie advertisement. Your task is to give me instruction regarding potential cinematic and audio effect I could add that would match the given image.",
+                        "text": "You are assisting in the creating of a short movie advertisement. Your task is to give me very short instruction regarding potential cinematic and audio effect I could add that would match the given image.",
                     },
                     {
                         "type": "image_url",
@@ -76,11 +76,11 @@ def generate_instruction_given_image(image_url):
 
     read_image_response = read_image.choices[0].message["content"]
     analysis_of_image = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Use the engine that's suitable for text generation
+        model="gpt-4",  # Use the engine that's suitable for text generation
         messages=[
             {
                 "role": "system",
-                "content": "Given the description of an image. You will generate a list of instructions to create a short movie advertisement. I want you to give me nice transitions, cinematic effects, and audio effects, that would match the description of the image.Only give me 3 to 4 bullet points. Do that and only that. In a json.",
+                "content": "Given the description of an image. You will generate a list of instructions to create a short movie advertisement. I want you to give me nice transitions, cinematic effects, and audio effects, that would match the description of the image.Only give me 3 to 4  very short bullet points, in a list format where each bullet point is an element. Do that and only that. Answer should only be a json in the following format: {\"visual_effect\": [\"effect_1_description\",\"effect_2_description\"],\"audio_effect\": [\"effect_1_description\",\"effect_2_description\"] }",
             },
             {"role": "user", "content": read_image_response},
         ],
@@ -119,17 +119,18 @@ def process_audio():
 
     instructions = generate_instruction_given_image(generated_image_url)
 
-    # Make a GET request to the image URL
-    response = requests.get(generated_image_url)
-    # Load the image from the response content
-    generated_image = Image.open(BytesIO(response.content))
+    # # Make a GET request to the image URL
+    # response = requests.get(generated_image_url)
+    # # Load the image from the response content
+    # generated_image = Image.open(BytesIO(response.content))
 
-    # Display the image
-    generated_image.show()
+    # # Display the image
+    # generated_image.show()
 
     # Return the transcribed text
     return jsonify(
-        {"transcription": text, "prompt": generated_prompt, "instruction": instructions}
+        {"transcription": text, "prompt": generated_prompt, "instruction": instructions,
+         "image_url": generated_image_url}
     )
 
 
