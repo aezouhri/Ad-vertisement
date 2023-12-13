@@ -2,3 +2,6 @@ config.py
 .venv
 *.mp3
 __pycache__
+*.docx
+*.drawio
+Flowchart.html
